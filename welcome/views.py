@@ -19,6 +19,9 @@ def index(request):
         'count': PageView.objects.count()
     })
 
+def about(request):
+    return render(request, 'welcome/abut.html')
+
 def health(request):
     """Takes an request as a parameter and gives the count of pageview objects as reponse"""
     return HttpResponse(PageView.objects.count())
