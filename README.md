@@ -1,5 +1,5 @@
 # Openshift quickstart: Django
-
+123123
 This is a [Django](http://www.djangoproject.com) project that you can use as the starting point to develop your own and deploy it on an [OpenShift](https://github.com/openshift/origin) cluster.
 
 **NOTE:** This version contains obsolete Django 1.11.x LTS which works with RHEL/Centos 7 and Python 2. Consider switching to RHEL/Centos 8 and Python 3 with Django 2.2.x LTS in [branch 2.2.x](https://github.com/sclorg/django-ex/tree/2.2.x) or 3.2.x LTS in [branch 3.2.x](https://github.com/sclorg/django-ex/tree/3.2.x).
