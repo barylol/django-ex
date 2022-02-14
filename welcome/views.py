@@ -1,5 +1,5 @@
 import os
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.http import HttpResponse
 from .models import Task
@@ -20,8 +20,18 @@ def health(request):
     return HttpResponse(PageView.objects.count())
 
 def create(request):
+    error = ''
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            redirect('home')
+        else:
+            error = 'Ошибка в форме'
+
     form = TaskForm()
     context = {
         'form': form
+        'error': error
     }
     return render(request, 'welcome/about.html', context)
