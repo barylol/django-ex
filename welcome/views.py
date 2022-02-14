@@ -13,11 +13,13 @@ def index(request):
     """Takes an request object as a parameter and creates an pageview object then responds by rendering the index view."""
     hostname = os.getenv('HOSTNAME', 'unknown')
     PageView.objects.create(hostname=hostname)
-
+    tasks = Task.objects.all()
     return render(request, 'welcome/index.html', {
         'hostname': hostname,
         'database': database.info(),
         'count': PageView.objects.count()
+        'title': 'Главная страница сайта',
+        'tasks': tasks
     })
 
 def health(request):
