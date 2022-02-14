@@ -6,7 +6,12 @@
 
 {% block content %}
     <h1>Главная страница</h1>
-    {{ tasks }}
+    {% for el in tasks %}
+        <div class="alert alert-warning mt-2">
+            <h3>{{ el.title }}</h3>
+            <p>{{ el.taks }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}
 
 
