@@ -2,6 +2,7 @@ import os
 from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse
+from .models import Task
 
 from . import database
 from .models import PageView
@@ -13,14 +14,11 @@ def index(request):
     hostname = os.getenv('HOSTNAME', 'unknown')
     PageView.objects.create(hostname=hostname)
 
-    return render(request, 'welcome/index.html', {
-        'hostname': hostname,
-        'database': database.info(),
-        'count': PageView.objects.count()
-    })
+    tasks = Task.objects.all()
+    return render(request, 'welcome/index.html', {'title': 'Главная страница сайта', 'tasks':tasks})
 
 def about(request):
-    return render(request, 'welcome/abut.html')
+    return render(request, 'welcome/about.html')
 
 def health(request):
     """Takes an request as a parameter and gives the count of pageview objects as reponse"""
