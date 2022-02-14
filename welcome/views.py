@@ -14,11 +14,11 @@ def index(request):
     hostname = os.getenv('HOSTNAME', 'unknown')
     PageView.objects.create(hostname=hostname)
 
-    tasks = Task.objects.all()
-    return render(request, 'welcome/index.html', {'title': 'Главная страница сайта', 'tasks':tasks})
-
-def about(request):
-    return render(request, 'welcome/about.html')
+    return render(request, 'welcome/index.html', {
+        'hostname': hostname,
+        'database': database.info(),
+        'count': PageView.objects.count()
+    })
 
 def health(request):
     """Takes an request as a parameter and gives the count of pageview objects as reponse"""
