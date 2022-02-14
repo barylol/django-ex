@@ -18,8 +18,6 @@ def index(request):
         'hostname': hostname,
         'database': database.info(),
         'count': PageView.objects.count()
-        'title': 'Главная страница сайта',
-        'tasks': tasks
     })
 
 def health(request):
