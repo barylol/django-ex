@@ -24,4 +24,4 @@ def create(request):
     context = {
         'form': form
     }
-    return render(request, 'welcome/about.html')
+    return render(request, 'welcome/about.html', context)
