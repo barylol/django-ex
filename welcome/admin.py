@@ -9,3 +9,8 @@ class PageViewAdmin(admin.ModelAdmin):
     list_display = ['hostname', 'timestamp']
 
 admin.site.register(PageView, PageViewAdmin)
+
+
+from .models import Task
+
+admin.site.register(Task)
