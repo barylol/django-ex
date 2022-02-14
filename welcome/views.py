@@ -16,4 +16,7 @@ def index(request):
 
 def health(request):
     """Takes an request as a parameter and gives the count of pageview objects as reponse"""
-    return render(request, 'welcome/about.html', {'title': 'Создать задачу', 'tasks': tasks})
+    return HttpResponse(PageView.objects.count())
+
+def create(request):
+    return render(request, 'welcome/about.html')
