@@ -14,6 +14,6 @@ def index(request):
     tasks = Task.objects.all()
     return render(request, 'welcome/index.html', {'title': 'Главная страница сайта', 'tasks': tasks})
 
-def health(request):
+def create(request):
     """Takes an request as a parameter and gives the count of pageview objects as reponse"""
-    return HttpResponse(PageView.objects.count())
+    return render(request, 'welcome/about.html')
