@@ -25,13 +25,13 @@ def create(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-            redirect('home')
+            return redirect('home')
         else:
             error = 'Ошибка в форме'
 
     form = TaskForm()
     context = {
-        'form': form
+        'form': form,
         'error': error
     }
     return render(request, 'welcome/about.html', context)
