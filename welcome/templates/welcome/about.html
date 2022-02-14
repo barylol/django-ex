@@ -8,10 +8,8 @@
     <h1>Создать задаччу</h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.title }}
-        {{ form.task }}
-        <input type="text" placeholder="Введите название" class="form-control"><br>
-        <textarea type="text" placeholder="Введите описание" class="form-control"></textarea>
+        {{ form.title }}<br>
+        {{ form.task }}<br>
         <button type="submit" class="btn btn-success">Добавить</button>
     </form>
 {% endblock %}
